@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Picktime", "Picktime\Picktime.vbproj", "{117AD3F1-7C4B-4435-9A00-A93787171225}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PickTime", "PickTime\PickTime.csproj", "{B5800EEB-B1A8-42FD-8C09-C6C79BB8C35F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{117AD3F1-7C4B-4435-9A00-A93787171225}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{117AD3F1-7C4B-4435-9A00-A93787171225}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{117AD3F1-7C4B-4435-9A00-A93787171225}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{117AD3F1-7C4B-4435-9A00-A93787171225}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5800EEB-B1A8-42FD-8C09-C6C79BB8C35F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5800EEB-B1A8-42FD-8C09-C6C79BB8C35F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5800EEB-B1A8-42FD-8C09-C6C79BB8C35F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5800EEB-B1A8-42FD-8C09-C6C79BB8C35F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {373E09C4-D537-41F5-BB75-59CAD7732FB9}
+		SolutionGuid = {64FE8775-5F37-4F4D-97EC-942001FDF29A}
 	EndGlobalSection
 EndGlobal
