@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PickTime.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PickTime.Login" UnobtrusiveValidationMode="None" %>
 
 <!DOCTYPE html>
 
@@ -31,7 +31,7 @@
                         <asp:TextBox ID="TextBoxUsername" runat="server"></asp:TextBox>
                     </td>
                     <td class="auto-style3">
-                        <asp:RequiredFieldValidator ID="ValidatorUsername" runat="server" ControlToValidate="TextBoxUsername" ErrorMessage="Username is mendatory"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="ValidatorUsername" runat="server" ControlToValidate="TextBoxUsername" ErrorMessage="Username is mendatory" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -42,14 +42,16 @@
                         <asp:TextBox ID="TextBoxPassword" runat="server" TextMode="Password"></asp:TextBox>
                     </td>
                     <td class="auto-style3">
-                        <asp:RequiredFieldValidator ID="ValidatorPassword" runat="server" ControlToValidate="TextBoxPassword" ErrorMessage="Password is mendatory"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="ValidatorPassword2" runat="server" ErrorMessage="Password must contain minimum 8 characters atleast 1 Alphabet, 1 Number and 1 Special Character " ControlToValidate="TextBoxPassword" ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$"></asp:RegularExpressionValidator>
+                        <asp:RequiredFieldValidator ID="ValidatorPassword" runat="server" ControlToValidate="TextBoxPassword" ErrorMessage="Password is mendatory" ForeColor="#FF3300"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="ValidatorPassword2" runat="server" ErrorMessage="Password must contain minimum 8 characters atleast 1 Alphabet, 1 Number and 1 Special Character " ControlToValidate="TextBoxPassword" ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$" ForeColor="#FF3300"></asp:RegularExpressionValidator>
                     </td> 
                 </tr>
 
                 <tr>
                     <td class="auto-style1">&nbsp;</td>
-                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style2">
+                        <asp:Button ID="Button_Login" runat="server" OnClick="Button_Login_Click" Text="SignIn" />
+                    </td>
                     <td class="auto-style3">&nbsp;</td>
                 </tr>
             </table>
