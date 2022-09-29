@@ -22,9 +22,8 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <p>
-            Registration</p>
+    <form id="form1" runat="server" class="row g-3">
+        <p class="text-center h3"> Registration </p>
         <table class="auto-style1">
             <tr>
                 <td class="auto-style4">
@@ -79,7 +78,7 @@
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td class="auto-style3">
-                    <asp:Button ID="BtnSubmit" runat="server" OnClick="Onclick_Submit" Text="Submit" />
+                    <asp:Button ID="BtnSubmit" runat="server" class="btn btn-primary" OnClick="Onclick_Submit" Text="Submit" />
 &nbsp;
                     <input id="BtnReset" type="reset" value="Reset" /></td>
                 <td>&nbsp;</td>
