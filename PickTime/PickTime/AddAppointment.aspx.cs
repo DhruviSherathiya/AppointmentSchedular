@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 namespace PickTime
 {
@@ -16,7 +19,28 @@ namespace PickTime
 
         protected void Button_Create_Click(object sender, EventArgs e)
         {
-
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["userConnection"].ConnectionString;
+            try
+            {
+                using (con)
+                {
+                    con.Open();
+                    string sql = "insert into [Schedules] (Subject,Start_time, End_time, User_id, Date) values ('" + TextBoxSubject.Text + "' , '" + TextBoxStartTime.Text + "' , '" + TextBoxEndTime.Text + "' , 3, '" + TextBoxDate.Text + "')";
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    TextBoxSubject.Text = "";
+                    TextBoxDate.Text = "";
+                    TextBoxEndTime.Text = "";
+                    TextBoxStartTime.Text = "";
+                    Response.Write("Schedule added");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
         }
     }
 }

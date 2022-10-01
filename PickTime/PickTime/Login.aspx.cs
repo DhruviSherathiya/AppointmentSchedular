@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.Data.OleDb;
 
 namespace PickTime
 {
@@ -15,7 +16,7 @@ namespace PickTime
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection();
+            /*SqlConnection con = new SqlConnection();
             con.ConnectionString = ConfigurationManager.ConnectionStrings["userConnection"].ConnectionString;
             try
             {
@@ -27,40 +28,49 @@ namespace PickTime
             catch(Exception ex)
             {
                 Response.Write("Errors: " + ex);
-            }
+            }*/
         }
 
         protected void Button_Login_Click(object sender, EventArgs e)
         {
-
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["userConnection"].ConnectionString;
             try
             {
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = ConfigurationManager.ConnectionStrings["userConnection"].ConnectionString;
-                con.Open();
-                string cmdst = "select Username from User where Username='" + txt_Username.Text.Trim() + "'";
-                // trim removes whitespaces  
-                SqlCommand cmd = new SqlCommand(cmdst, con);
-                int temp = Convert.ToInt32(cmd.ExecuteScalar().ToString());
-                if (temp == 1)
+                using (con)
                 {
-                    Session["Response"] = txt_Username.Text;
-                    Response.Redirect("Home.aspx");
-                    // user login  
-                }
-                else
-                {
-                    lblMessage.Text = "Invalid Login!";
-                    // label  
-                    lblMessage.Visible = true;
-                    // label  
+                    string query = "SELECT Username,Password FROM [User] WHERE Username='" + TextBoxUsername.Text + "'and Password='" + TextBoxPassword.Text + "'";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    
+                    using (cmd)
+                    {
+                       
+                        con.Open();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            
+                            if (reader.Read())
+                            {
+                                Session["Username"] = TextBoxUsername.Text;
+                                Response.Write("Login Successfully.");
+                                Response.Redirect("~/AddAppointment.aspx");
+                            }
+                            else
+                            {
+                                Response.Write("Invalid Username or Password.");
+                            }
+                            reader.Close();
+                        }
+                        
+                    }
+
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblMessage.Text = ex.Message;
+                lblMessage.Visible = true;
             }
-           
         }
     }
 }

@@ -14,23 +14,23 @@
     <div class="user__details">
       <div class="input__box sub">
         <span class="details">Subject </span>
-        <asp:TextBox ID="TextBox5" runat="server" placeholder="Subject of the meeting"></asp:TextBox>
+        <asp:TextBox ID="TextBoxSubject" runat="server" placeholder="Subject of the meeting"></asp:TextBox>
       </div>
       <div class="input__box">
         <span class="details">Date</span>
-        <asp:TextBox ID="TextBox4" runat="server" TextMode="Date"></asp:TextBox>
+        <asp:TextBox ID="TextBoxDate" runat="server" TextMode="Date"></asp:TextBox>
       </div>
       <div class="input__box">
         <span class="details">Start Time</span>
-        <asp:TextBox ID="TextBox2" runat="server" TextMode="Time"></asp:TextBox>
+        <asp:TextBox ID="TextBoxStartTime" runat="server" TextMode="Time"></asp:TextBox>
       </div>
       <div class="input__box">
         <span class="details">End Time</span>
-        <asp:TextBox ID="TextBox3" runat="server" TextMode="Time"></asp:TextBox>
+        <asp:TextBox ID="TextBoxEndTime" runat="server" TextMode="Time"></asp:TextBox>
       </div>
     </div>
     <div class="button">
-      <asp:Button ID="Button1" runat="server" Text="Create Schedule" />
+      <asp:Button ID="Button_Create" runat="server" Text="Create Schedule" OnClick="Button_Create_Click" />
     </div>
   </form>
 </div>

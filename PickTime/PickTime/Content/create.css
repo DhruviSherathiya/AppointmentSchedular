@@ -122,10 +122,6 @@ form .button {
         width: 100%;
     }
 
-    form .gender__details .category {
-        width: 100%;
-    }
-
     .container form .user__details {
         max-height: 300px;
         overflow-y: scroll;
@@ -135,3 +131,4 @@ form .button {
         width: 0;
     }
 }
+
