@@ -89,6 +89,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\create.css" />
+    <Content Include="Content\homeStyle.css" />
     <Content Include="extra.txt" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
@@ -170,6 +171,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
