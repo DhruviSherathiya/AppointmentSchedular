@@ -40,6 +40,16 @@ namespace PickTime
             }
             GridViewSchedule.DataSource = ds.Tables["MySchedule"];
             GridViewSchedule.DataBind();
+
+            
+        }
+
+        protected void Button_Logout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Session.Clear();
+            Session.RemoveAll();
+            Response.Redirect("Login.aspx");
         }
     }
 }

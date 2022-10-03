@@ -33,43 +33,40 @@ namespace PickTime
 
         protected void Button_Login_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = ConfigurationManager.ConnectionStrings["userConnection"].ConnectionString;
-            try
-            {
-                using (con)
-                {
-                    string query = "SELECT Username,Password FROM [User] WHERE Username='" + TextBoxUsername.Text + "'and Password='" + TextBoxPassword.Text + "'";
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    
-                    using (cmd)
-                    {
-                       
-                        con.Open();
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            
-                            if (reader.Read())
-                            {
-                                Session["Username"] = TextBoxUsername.Text;
-                                Response.Write("Login Successfully.");
-                                Response.Redirect("~/AddAppointment.aspx");
-                            }
-                            else
-                            {
-                                Response.Write("Invalid Username or Password.");
-                            }
-                            reader.Close();
-                        }
-                        
-                    }
 
-                }
-            }
-            catch (Exception ex)
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["userConnection"].ConnectionString);
+            conn.Open();
+
+            string checkUser = "Select count(*) from [User] where UserName= '" + TextBoxUsername.Text + "'";
+            SqlCommand cmd = new SqlCommand(checkUser, conn);
+            int temp = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+            //Response.Write(temp);
+            conn.Close();
+
+            if (temp == 1)
             {
-                lblMessage.Text = ex.Message;
-                lblMessage.Visible = true;
+                conn.Open();
+                string checkPassowrdQuery = "select Password from [User] where UserName='" + TextBoxUsername.Text + "'";
+                SqlCommand comPass = new SqlCommand(checkPassowrdQuery, conn);
+                string password = comPass.ExecuteScalar().ToString().Replace(" ", "");
+
+                string checkUnameQuery = "select UserName from [User] where UserName = '" + TextBoxUsername.Text + "'";
+                SqlCommand comUname = new SqlCommand(checkUnameQuery, conn);
+                string uname = comUname.ExecuteScalar().ToString();
+
+
+                if (password == TextBoxPassword.Text)
+                {
+                    Session["User"] = TextBoxUsername.Text;
+                    Response.Redirect("Home.aspx");
+                }
+                else
+                {
+                    Response.Write("Password is incorrect");
+                }
+
+
+                conn.Close();
             }
         }
     }
