@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddAppointment.aspx" />
+    <Content Include="AdminPage.aspx" />
     <Content Include="App_Data\User.mdf" />
     <Content Include="App_Data\User_log.ldf">
       <DependentUpon>User.mdf</DependentUpon>
@@ -90,6 +91,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\create.css" />
     <Content Include="Content\homeStyle.css" />
+    <Content Include="DisplayCalender.aspx" />
     <Content Include="extra.txt" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
@@ -111,6 +113,20 @@
     </Compile>
     <Compile Include="AddAppointment.aspx.designer.cs">
       <DependentUpon>AddAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPage.aspx.cs">
+      <DependentUpon>AdminPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPage.aspx.designer.cs">
+      <DependentUpon>AdminPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayCalender.aspx.cs">
+      <DependentUpon>DisplayCalender.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DisplayCalender.aspx.designer.cs">
+      <DependentUpon>DisplayCalender.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

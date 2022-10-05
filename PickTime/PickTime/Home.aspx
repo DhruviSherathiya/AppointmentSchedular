@@ -25,12 +25,14 @@
             <h5> 1st Oct 2022 </h5>
         </div>
     </div>-->
-    <div id="outer">
-        <div id="inner">
-            <form id="formDisplay" runat="server">
-            <div>
-            <asp:GridView ID="GridViewSchedule" runat="server" CellPadding="4" CssClass="inner" ForeColor="#333333" GridLines="None">
+   
+    <form id="formDisplay" runat="server">
+        <div>
+            <asp:GridView ID="GridViewSchedule" runat="server" CellPadding="4" CssClass="inner" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridViewSchedule_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                <Columns>
+                    <asp:CommandField ButtonType="Button" HeaderText="Cancel Appointment" ShowDeleteButton="True" />
+                </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#9b59b6" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#9b59b6" Font-Bold="True" ForeColor="White" />
@@ -44,9 +46,8 @@
             </asp:GridView>
             <br />
         </div>
-        </form>
-        </div>
-    </div>
+    </form>
+        
    
     
 </body>

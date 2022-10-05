@@ -25,8 +25,10 @@ namespace PickTime
             {
                 using (con)
                 {
+                    string usrname = Session["User"].ToString();
+                    Console.WriteLine(usrname);
                     con.Open();
-                    string sql = "insert into [Schedules] (Subject,Start_time, End_time, User_id, Date) values ('" + TextBoxSubject.Text + "' , '" + TextBoxStartTime.Text + "' , '" + TextBoxEndTime.Text + "' , 3, '" + TextBoxDate.Text + "')";
+                    string sql = "insert into [Schedules] (Subject,Start_time, End_time, User_name, Date) values ('" + TextBoxSubject.Text + "' , '" + TextBoxStartTime.Text + "' , '" + TextBoxEndTime.Text + "' , '" + usrname + "' , '" + TextBoxDate.Text + "')";
                     SqlCommand cmd = new SqlCommand(sql, con);
                     cmd.ExecuteNonQuery();
                     con.Close();
@@ -35,6 +37,7 @@ namespace PickTime
                     TextBoxEndTime.Text = "";
                     TextBoxStartTime.Text = "";
                     Response.Write("Schedule added");
+                    Response.Redirect("Home.aspx");
                 }
             }
             catch (Exception ex)

@@ -54,7 +54,14 @@ namespace PickTime
                 SqlCommand comUname = new SqlCommand(checkUnameQuery, conn);
                 string uname = comUname.ExecuteScalar().ToString();
 
-
+                if(uname == "Admin")
+                {
+                    if (password == "admin@123")
+                    {
+                        Response.Redirect("AdminPage.aspx");
+                    }
+                }
+                
                 if (password == TextBoxPassword.Text)
                 {
                     Session["User"] = TextBoxUsername.Text;
