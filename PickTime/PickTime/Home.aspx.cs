@@ -19,7 +19,7 @@ namespace PickTime
         protected void Page_Load(object sender, EventArgs e)
         {
             /*
-             * < 0 − If date1 is earlier than date2
+             *  < 0 − If date1 is earlier than date2
              *  0 − If date1 is the same as date2
              *  > 0 − If date1 is later than date2
              *  int res = DateTime.Compare(d1, d2);
@@ -57,6 +57,8 @@ namespace PickTime
         {
 
         }
+
+
 
         /*protected void Button_Logout_Click(object sender, EventArgs e)
         {
