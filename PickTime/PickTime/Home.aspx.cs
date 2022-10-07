@@ -34,7 +34,7 @@ namespace PickTime
             string usrname = Session["User"].ToString();
             Console.WriteLine(usrname);
 
-            cmd.CommandText = "SELECT * FROM Schedules where User_name='" + usrname + "';";
+            cmd.CommandText = "SELECT Subject,Date,Start_time,End_time FROM Schedules where User_name='" + usrname + "';";
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             ds = new DataSet();
 

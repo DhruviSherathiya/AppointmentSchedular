@@ -46,6 +46,11 @@
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
 
+           <%-- <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:userConnection %>" 
+                SelectCommand="SELECT * FROM [Schedules]"
+                DeleteCommand="DELETE FROM [Schedules] WHERE [Id]=@Id">
+            </asp:SqlDataSource>--%>
+
             <br />
         </div>
     </form>
