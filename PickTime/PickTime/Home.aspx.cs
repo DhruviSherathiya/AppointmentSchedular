@@ -24,13 +24,14 @@ namespace PickTime
              *  > 0 − If date1 is later than date2
              *  int res = DateTime.Compare(d1, d2);
              */
+
+            
             string conStr = WebConfigurationManager.ConnectionStrings["userConnection"].ConnectionString;
             SqlConnection con = new SqlConnection(conStr);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
 
             string usrname = Session["User"].ToString();
-
             Console.WriteLine(usrname);
 
             cmd.CommandText = "SELECT * FROM Schedules where User_name='" + usrname + "';";

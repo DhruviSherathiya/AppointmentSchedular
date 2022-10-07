@@ -8,11 +8,12 @@
     <title></title>
 </head>
 <body>
-    
+       
         <ul>
             <li><h2>PickTime </h2></li>
-            <li><a href="#">Profile</a></li>
+            <li><a herf="#"><% Response.Write(Session["User"]); %></a></li>
             <li><a href="Logout.aspx">Logout</a></li>
+            
         </ul>
     <a href="AddAppointment.aspx"><img src="images/create.png"></a>
    
@@ -44,6 +45,7 @@
                 <SortedDescendingCellStyle BackColor="#FFFDF8" />
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
+
             <br />
         </div>
     </form>
